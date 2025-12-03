@@ -27,8 +27,8 @@ export default function CurrentCard() {
     const todayCondition = weatherMap[data.current_weather?.weathercode] || "Unknown";
 
     return (
-        <div className="weather-card">
-            <div className="relative h-screen w-full md:w-1/2">
+        <div className="current-card">
+            <div className="relative h-screen">
                 <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0" 
                      alt="landscape" 
                      className="h-full w-full object-cover object-left rounded-lg"
