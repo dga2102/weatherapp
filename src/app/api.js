@@ -7,8 +7,10 @@ const weatherMap = {
   45: "Fog",
   48: "Fog",
   51: "Light drizzle",
-  61: "Rain",
+  61: "Light rain",
+  63: "Rain",
   71: "Snow",
+  80: "Light Showers",
   95: "Thunderstorm"
 };
 
