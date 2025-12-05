@@ -47,7 +47,7 @@ export default function WeatherCard() {
 
                 return (
                     <div key={`${day}-${i}`} className="flex items-center justify-center font-sans p-1">
-                        <div className="bg-white rounded-xl shadow-lg w-60">
+                        <div className="bg-white rounded-xl shadow-lg w-60 h-65">
     
                             <div className="bg-[#3CA898] text-white p-5 flex justify-between items-start rounded-t-xl">
                                 <div>
@@ -57,7 +57,7 @@ export default function WeatherCard() {
                                     <p className="text-xs uppercase mt-2">London</p>
                                 </div>
                             
-                                <div className="w-16 h-16 flex items-center justify-center">
+                                <div className="flex items-center justify-center">
                                     <img src={iconMap[data.daily.weathercode[i]]} alt="icon" />
                                 </div>
                             </div>
