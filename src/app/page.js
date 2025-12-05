@@ -14,7 +14,7 @@ export default function Home() {
       <div className="w-full md:w-1/2">
         <CurrentCard coords={coords}/>
       </div>
-      <div className="w-full md:w-1/2">
+      <div className="w-full md:w-1/2 bg-gray-50">
         <SearchBar />
         <WeatherBar />
       </div>

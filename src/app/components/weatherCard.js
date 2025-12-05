@@ -40,28 +40,44 @@ export default function WeatherCard() {
     }
     return (
         <div>
-            <div className="flex flex-wrap gap-2 justify-evenly">
+            <div className="flex flex-wrap justify-evenly max-h-[780px] overflow-y-auto">
                 {data.daily.time.slice(0, 7).map((day, i) => {
                 const date = new Date(day);
                 const condition = weatherMap[data.daily.weathercode[i]];
 
                 return (
-                <div key={`${day}-${i}`} className="flex items-center justify-between w-[45%] rounded-xl shadow p-6 mb-6 bg-gradient-to-tl from-[#6BBDB3] to-[#7FC8B8]">
-                    <div className="flex items-center gap-4">
-                        <img src={iconMap[data.daily.weathercode[i]]} alt="icon" className=" w-8 h-8" />
-                        <div>
-                            <h2 className="text-3xl font-bold text-gray-800">{data.daily.temperature_2m_max[i]}°C</h2>
-                            <p className="text-sm text-gray-500">{date.toLocaleDateString("en-GB", { weekday: "long" })}</p>
-                        </div>
-                    
-                        <div className="text-gray-600">
-                            <p>{date.toLocaleDateString()}</p>
-                            <p>{condition}</p>
-                            <p>{data.daily.temperature_2m_min[i]}° / {data.daily.temperature_2m_max[i]}°C</p>
-                            <p>{data.daily.wind_speed_10m_max[i]} km/h</p>
+                    <div key={`${day}-${i}`} className="flex items-center justify-center font-sans p-1">
+                        <div className="bg-white rounded-xl shadow-lg w-60">
+    
+                            <div className="bg-[#3CA898] text-white p-5 flex justify-between items-start rounded-t-xl">
+                                <div>
+                                    <p className="text-2xl font-light">{date.toLocaleDateString("en-GB", { weekday: "long" })}</p>
+                                    <p className="text-sm uppercase mt-1">{date.toLocaleDateString()}</p>
+                                    <p className="text-6xl font-bold mt-2">{data.daily.temperature_2m_max[i]}°C</p>
+                                    <p className="text-xs uppercase mt-2">London</p>
+                                </div>
+                            
+                                <div className="w-16 h-16 flex items-center justify-center">
+                                    <img src={iconMap[data.daily.weathercode[i]]} alt="icon" />
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-3 divide-x divide-gray-200">
+                                <div className="text-center py-3 hover:bg-gray-200 transition">
+                                    <span className="text-sm uppercase">{data.daily.wind_speed_10m_max[i]}km/h</span>
+                                </div>
+
+                                <div className="text-center py-3 hover:bg-gray-200 transition">
+                                    <span className="text-sm uppercase">{data.daily.temperature_2m_min[i]}°C / {data.daily.temperature_2m_max[i]}°C</span>
+                                </div>
+
+                                <div className="text-center py-3 hover:bg-gray-200 transition">
+                                    <span className="text-sm uppercase">{condition}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+
                 );
             })}   
             </div>
